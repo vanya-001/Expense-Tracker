@@ -3,8 +3,11 @@ import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../context/globalContext';
+import { plus } from '../../utils/icons';
+import Button from '../Button/Button';
+
 function Form() {
-    const {addIncome} = useGlobalContext()
+    const {addIncome, getIncome} = useGlobalContext()
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
@@ -22,6 +25,15 @@ function Form() {
     const handleSubmit = e=>{
         e.preventDefault()
         addIncome(inputState)
+        getIncome()
+        setInputState({
+            title: '',
+            amount: '',
+            date: '',
+            category: '',
+            description: '',
+        })
+
     }
 
   return (
@@ -56,18 +68,6 @@ function Form() {
                 }}
             />
         </div>
-        <div className="input-control">
-            <textarea 
-                type="text" 
-                value={description}
-                name= {'description'}
-                id={'description'}
-                placeholder='Describe'
-                cols='30'
-                rows='4'
-                onChange={handleInput('description')}
-            />
-        </div>
         <div className='.selects input-control'>
                 <select required value = {category} name='category' id='category' onChange={handleInput('category')}>
                     <option value="" disabled> Select Option</option>
@@ -81,12 +81,80 @@ function Form() {
                     <option value="other">Other</option>
                 </select>
         </div>
+        <div className="input-control">
+            <textarea 
+                type="text" 
+                value={description}
+                name= {'description'}
+                id={'description'}
+                placeholder='Describe'
+                cols='30'
+                rows='4'
+                onChange={handleInput('description')}
+            />
+        </div>
         <div className="submit-btn">
-            <button>Add Income</button>
+            <Button 
+                name = {'Add-Income'}
+                icon = {plus}
+                bPad = {'.8rem 1.6rem'}
+                bRad = {'30px'}
+                bg = {'var(--color-accent)'}
+                color = {'#fff'}
+                hColor = {'var(--color-blue)'}
+
+            />
         </div>
     </FormStyled>
   )
 }
 
-const FormStyled = styled.div``;
+const FormStyled = styled.form`
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    input, textarea, select{
+        font-family: inherit;
+        font-size: inherit;
+        outline: none;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        border: 2px solid #fff;
+        background: transparent;
+        resize: none;
+        box-shadow: 0px 1px 15px rgba(0,0,0,0.06);
+        color: rgba(34,34,96,0.9);
+        &::placeholder{
+            color: rgba(34,34,96,0.4);
+            font-family: inherit;
+        }
+    }
+
+    .input-control{
+        input{
+            width: 100%;
+        }  
+    }
+
+    .selects{
+        display: flex;
+        justify-content: flex-end;
+        select{
+            color: rgba(34,34,96,0.4);
+            &:focus, &:active{
+                color: rgba(34,34,96,1);
+            }
+        }
+    }
+
+    .submit-btn{
+        button{
+            box-shadow: 0px 1px 15px rgba(0,0,0,0.06);
+            &:hover{
+                background: var(--color-blue) !important;
+            }
+        }
+    }
+`;
 export default Form
