@@ -18,7 +18,7 @@ export const dollar = <i class="fa-solid fa-indian-rupee-sign"></i>
 export const calender = <i class="fa-solid fa-calendar-days"></i>
 export const comment = <i class="fa-solid fa-comment"></i>
 export const plus = <i class="fa-light fa-plus"></i>
-export const  trash=<i class="fa-solid fa-trash"></i>
+export const trash=<i class="fa-solid fa-trash"></i>
 export const signout = <i class="fa-solid fa-right-from-bracket"></i>
 export const takeaway = <i class="fa-solid fa-utensils"></i>
 export const clothing =<i class="fa-solid fa-shirt"></i>
