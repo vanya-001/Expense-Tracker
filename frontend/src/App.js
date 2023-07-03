@@ -7,7 +7,7 @@ import React, {useState, useMemo} from 'react'
 import Dashboard from "./components/Dashboard/Dashboard";
 import Expenses from "./components/Expenses/Expenses";
 import Incomes from "./components/Incomes/Incomes"
-import { useGlobalContext } from "./context/globalContext";
+import { GlobalProvider, useGlobalContext } from "./context/globalContext";
 
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
   },[])
 
   return (
+    <GlobalProvider>
     <AppStyled bg={bg} className="App">
       {orbMemo}
       <MainLayout>
@@ -45,6 +46,7 @@ function App() {
         </main>
       </MainLayout>
     </AppStyled>
+    </GlobalProvider>
   );
 }
 
