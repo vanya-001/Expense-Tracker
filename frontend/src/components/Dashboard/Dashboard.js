@@ -19,7 +19,7 @@ function Dashboard() {
             <h1>All Transcations</h1>
             <div className="stats-con">
               <div className="chart-con">
-                <Chart></Chart>
+                <Chart />
                 <div className="amount-con">
                   <div className="income">
                     <h4>Total Income</h4>
@@ -73,6 +73,7 @@ const DashboardStyled = styled.div`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
+    width: 100%;
     .chart-con{
       grid-column: 1 / 4;
       height: 300px;

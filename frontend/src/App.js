@@ -65,6 +65,10 @@ const AppStyled = styled.div`
       width: 0;
     }
   }
+  @media (max-width: 768px) {
+    border-width: 1px;
+    border-radius: 16px;
+  }
 `;
 
 export default App;

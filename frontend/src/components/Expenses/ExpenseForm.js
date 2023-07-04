@@ -54,7 +54,6 @@ function ExpenseForm() {
                 type="text" 
                 value={amount}
                 name= {'amount'}
-                id={'amount'}
                 placeholder='Enter Amount'
                 onChange={handleInput('amount')}
             />
@@ -70,7 +69,7 @@ function ExpenseForm() {
                 }}
             />
         </div>
-        <div className='.selects input-control'>
+        <div className='selects input-control'>
                 <select required value = {category} name='category' id='category' onChange={handleInput('category')}>
                     <option value="" disabled> Select Option</option>
                     <option value="education">Education</option>
