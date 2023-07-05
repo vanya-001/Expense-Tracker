@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Expenses from "./components/Expenses/Expenses";
 import Incomes from "./components/Incomes/Incomes"
 import { GlobalProvider, useGlobalContext } from "./context/globalContext";
+import SignUp from "./components/SignUp/SignUp";
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
   const displayData = () => {
     switch(active){
       case 1:
-        return <Dashboard />
+        return <SignUp />
       case 2:
         return <Dashboard />
       case 3:
