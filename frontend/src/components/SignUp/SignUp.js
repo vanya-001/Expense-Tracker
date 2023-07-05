@@ -15,12 +15,12 @@ function SignUp() {
 
         try {
             
-            await axios.post(BASE_URL, {email,password})
+            await axios.post(`${BASE_URL}post-detail`, {email,password})
             .then(res=>{
-                if(res.data="exist"){
+                if(res.data === "exist"){
                     alert("User already exists")
                 }
-                else if(res.data = "Does not exist"){
+                else if(res.data === "Does not exist"){
                     <meta http-equiv="refresh" href =
                     "frontend\src\components\Dashboard\Dashboard.js" />
                 }

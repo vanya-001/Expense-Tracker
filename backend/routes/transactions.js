@@ -14,7 +14,7 @@ R1.post('/add-income', addIncome)
     .post('/add-expense', addExpense)
     .get('/get-expense', getExpense)
     .delete('/delete-expense/:id', deleteExpense)
-    .get('/get-detail', getDetail)
+    .post('/get-detail', getDetail)
     .post('/post-detail', addDetailSignup)
 
 module.exports = R1; 

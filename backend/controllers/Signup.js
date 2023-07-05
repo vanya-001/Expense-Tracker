@@ -30,6 +30,7 @@ exports.addDetailSignup = async (req, res) => {
 
 exports.getDetail = async(req, res) => {
     try {
+        console.log(req.body);
         const {email, password} = req.body;
         const login = await collection.findOne({ email: email })
         res.status(200).json(login)

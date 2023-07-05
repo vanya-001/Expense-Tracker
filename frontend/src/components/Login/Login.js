@@ -4,6 +4,7 @@ import axios from 'axios';
 import Button from '../Button/Button';
 import { InnerLayout } from '../../styles/Layouts'; 
 import SignUp from '../SignUp/SignUp';
+import Dashboard from "../Dashboard/Dashboard";
 
 const BASE_URL = "http://localhost:5000/api/v1/";
 
@@ -15,13 +16,21 @@ function Login() {
     async function submit(e){
         e.preventDefault();
 
-        try {            
-            await axios.addDetail(BASE_URL, {email,password})
+        try {      
+            const data = {
+                email: email,
+                password: password
+            }
+      
+            await axios.post(`${BASE_URL}get-detail`, data)
             .then(res=>{
-                if(res.data === "exist"){
-                    window.location.href = "/frontend/src/components/Dashboard/Dashboard.js";
+                console.log(email);
+                console.log(password);
+                console.log(res);
+                if(res.data !== null){
+                    <Dashboard />
                 }
-                else if(res.data === "Does not exist"){
+                else{
                     alert("User have not signed up!")
                 }
             })
