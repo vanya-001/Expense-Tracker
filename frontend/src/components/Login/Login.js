@@ -12,30 +12,30 @@ function SignUp() {
     async function submit(e){
         e.preventDefault();
 
-        try {
-            
-            await axios.post(BASE_URL, {email,password})
+        try {            
+            await axios.addDetail(BASE_URL, {email,password})
             .then(res=>{
                 if(res.data="exist"){
-                    alert("User already exists")
-                }
-                else if(res.data = "Does not exist"){
                     <meta http-equiv="refresh" href =
                     "frontend\src\components\Dashboard\Dashboard.js" />
                 }
+                else if(res.data = "Does not exist"){
+                    alert("User have not signed up!")
+                }
             })
             .catch(e=>{
-                alert("Wrong Details")
+                alert("Wronf Details")
                 console.log(e);
             })
+
         } catch (e) {
             console.log(e);
         }
     }
   return (
-    <SignUpStyled>
+    <LoginStyled>
         <div className="signup">
-            <h1>SignUp</h1>
+            <h1>Login</h1>
             <form action="POST" method="post">
                 <input type="email" onChange={(e) =>{setEmail(e.target.value)}} placeholder="Email" name="" id="" />
                 <input type="password" onChange={(e) => {setPassword(e.target.value)}} placeholder='Password' name="" id="" />
@@ -44,14 +44,14 @@ function SignUp() {
             <br />
             <p>OR</p>
             <br />
-            <a href="frontend\src\components\Login\Login.js" id="link">LOGIN</a>
+            <a href="frontend\src\components\SignUp\SignUp.js" id="link">SignUp</a>
 
         </div>
-    </SignUpStyled>
+    </LoginStyled>
   )
 }
 
-const SignUpStyled = styled.div`
+const LoginStyled = styled.div`
 
 `;
 
