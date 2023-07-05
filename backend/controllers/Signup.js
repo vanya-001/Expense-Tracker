@@ -1,6 +1,6 @@
-const collection = require('./db/db')
+const collection = require('../models/LoginModel');
 
-exports.addDetail = async (req, res) => {
+exports.addDetailSignup = async (req, res) => {
     const { email, password } = req.body;
 
     const data={
@@ -28,6 +28,14 @@ exports.addDetail = async (req, res) => {
     }
 };
 
-app.listen(5000, () =>{
-    console.log("Port connected");
-})
+exports.getDetail = async(req, res) => {
+    try {
+        const {email, password} = req.body;
+        const login = await collection.findOne({ email: email })
+        res.status(200).json(login)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: 'Server Error'})
+    }
+}
+

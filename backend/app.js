@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { Database } = require('./db/db');
 const {readdirSync} = require('fs');
+// const { addDetail } = require('./controllers/Login');
 const app = express();
 
 
@@ -20,6 +21,7 @@ readdirSync('./routes').map((R1) => app.use('/api/v1', require('./routes/' + R1)
 const PORT = process.env.PORT
 const server =() => {
     Database()
+    
     app.listen(PORT, () => {
         console.log("listening to port: ", PORT);
     })

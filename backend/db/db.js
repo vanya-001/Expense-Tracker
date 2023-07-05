@@ -10,4 +10,5 @@ const Database = async () => {
     }
 }
 
-module.exports = {Database};
+
+module.exports = { Database };
