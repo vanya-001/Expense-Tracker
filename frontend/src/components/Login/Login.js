@@ -4,7 +4,9 @@ import axios from 'axios';
 import Button from '../Button/Button';
 import { InnerLayout } from '../../styles/Layouts'; 
 import SignUp from '../SignUp/SignUp';
-import Dashboard from "../Dashboard/Dashboard";
+// import Dashboard from "../Dashboard/Dashboard";
+// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const BASE_URL = "http://localhost:5000/api/v1/";
 
@@ -12,6 +14,12 @@ function Login() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    // const [showDashboard, setShowDashboard] = useState(false);
+    const navigate = useNavigate();
+
+    async function handleSignup(){
+        navigate('/SignUp')
+    }
 
     async function submit(e){
         e.preventDefault();
@@ -27,8 +35,8 @@ function Login() {
                 console.log(email);
                 console.log(password);
                 console.log(res);
-                if(res.data !== null){
-                    <Dashboard />
+                if(res.data != null){
+                    navigate('/Dashboard');
                 }
                 else{
                     alert("User have not signed up!")
@@ -43,9 +51,6 @@ function Login() {
             console.log(e);
         }
     }
-    // const handleSignUp = () => {
-    //     setShowSignUp(true);
-    //   };
 
   return (
     <LoginStyled>
@@ -65,25 +70,29 @@ function Login() {
                             bg = {'var(--color-accent)'}
                             color = {'#fff'}
                             hColor = {'var(--color-blue)'}
-                            onClick={submit}
+                            onClick={submit} 
                         />
+
                     </div>
                 </form>
+                
                 <br />
                 <p>OR</p>
                 <br />
-                {/* <Button 
+                <Button 
                     name = {'SignUp'}
                     bPad = {'.8rem 1.6rem'}
                     bRad = {'30px'}
                     bg = {'var(--color-accent)'}
                     color = {'#fff'}
                     hColor = {'var(--color-blue)'}
-                    onClick={handleSignUp}
-                /> */}
-                 <a href={SignUp} id="link">SignUp</a> 
+                    onClick={handleSignup}
+                />
+                
+                 {/* <a href={SignUp} id="link">SignUp</a>  */}
 
             </div>
+            
         </InnerLayout>
     </LoginStyled>
   )

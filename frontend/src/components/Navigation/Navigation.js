@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import avatar from '../../images/Avatar.png'
 import { menuItems } from '../../utils/menuItems'
 import {signout} from '../../utils/icons'
+import { Link } from 'react-router-dom'
 
 function Navigation({active, setActive}) {
   return (
@@ -11,19 +12,21 @@ function Navigation({active, setActive}) {
         <img src={avatar} alt=""  />
             <div className='text'>
                 <h2>Vanya</h2>
-                <p>Your Money</p>
+                <p>My Money</p>
             </div>
         </div>
         <ul className='menu-items'>
             {menuItems.map((item) => {
-                return <li
+                return <Link to={item.link}>
+                <li 
                     key = {item.id}
                     onClick={() => setActive(item.id)}
                     className={active === item.id ? 'active': ' '}
-                >
+                >   
                     {item.icon}
                     <span>{item.title}</span>
                 </li>
+                </Link>
             })}
         </ul>
         <div className="bottom-nav">

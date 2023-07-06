@@ -4,10 +4,12 @@ import { InnerLayout } from '../../styles/Layouts';
 import Chart from '../Chart/Chart'
 import { dollar } from '../../utils/icons';
 import { useGlobalContext } from '../../context/globalContext';
-import History from '../../History/History'
+import History from '../../History/History';
+// import { useHistory } from 'react-router-dom';
 
 function Dashboard() {
   const {incomes, expenses, totalExpense, totalIncome, totalBalance, getIncome, getExpense} = useGlobalContext()
+  // const history = useHistory();
 
   useEffect(() =>{
     getIncome()

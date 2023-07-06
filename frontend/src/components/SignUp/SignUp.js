@@ -2,27 +2,40 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import { InnerLayout } from '../../styles/Layouts';
 import axios from 'axios';
+import Dashboard from '../Dashboard/Dashboard';
+import { useNavigate } from 'react-router-dom';
+import Button from '../Button/Button';
+
 
 const BASE_URL = "http://localhost:5000/api/v1/";
 
 function SignUp() {
 
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    async function handleLogin(){
+        navigate('/Login');
+    }
 
     async function submit(e){
         e.preventDefault();
 
         try {
+            const data = {
+                email: email,
+                password: password
+            }
             
-            await axios.post(`${BASE_URL}post-detail`, {email,password})
+            await axios.post(`${BASE_URL}post-detail`, data)
             .then(res=>{
-                if(res.data === "exist"){
+                if(res.data != null ){
                     alert("User already exists")
                 }
-                else if(res.data === "Does not exist"){
-                    <meta http-equiv="refresh" href =
-                    "frontend\src\components\Dashboard\Dashboard.js" />
+                else if(res.data === null){
+                    <Dashboard />
                 }
             })
             .catch(e=>{
@@ -46,7 +59,16 @@ function SignUp() {
                 <br />
                 <p>OR</p>
                 <br />
-                <a href="frontend\src\components\Login\Login.js" id="link">LOGIN</a>
+                <Button 
+                    name = {'SignUp'}
+                    bPad = {'.8rem 1.6rem'}
+                    bRad = {'30px'}
+                    bg = {'var(--color-accent)'}
+                    color = {'#fff'}
+                    hColor = {'var(--color-blue)'}
+                    onClick={handleLogin}
+                />
+                {/* <a href="frontend\src\components\Login\Login.js" id="link">LOGIN</a> */}
 
             </div>
             </InnerLayout>
