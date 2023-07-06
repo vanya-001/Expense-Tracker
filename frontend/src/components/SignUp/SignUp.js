@@ -52,36 +52,55 @@ function SignUp() {
             <div className="signup">
                 <h1>SignUp</h1>
                 <form action="POST" method="post">
-                    <input type="email" onChange={(e) =>{setEmail(e.target.value)}} placeholder="Email" name="" id="" />
-                    <input type="password" onChange={(e) => {setPassword(e.target.value)}} placeholder='Password' name="" id="" />
-                    <input type="submit" onClick={submit} />
+                    <input type="email" onChange={(e) =>{setEmail(e.target.value)}} placeholder="Email" className="input-control" id="input-control" />
+                    <input type="password" onChange={(e) => {setPassword(e.target.value)}} placeholder='Password' className="input-control" id="input-control" />
+                    <div className="submit-btn">
+                        <Button 
+                            name = {'Submit'}
+                            bPad = {'.8rem 1.6rem'}
+                            bRad = {'30px'}
+                            bg = {'var(--color-accent)'}
+                            color = {'#fff'}
+                            hColor = {'var(--color-blue)'}
+                            onClick={submit} 
+                        />
+                    </div>
                 </form>
-                <br />
                 <p>OR</p>
-                <br />
-                <Button 
-                    name = {'SignUp'}
-                    bPad = {'.8rem 1.6rem'}
-                    bRad = {'30px'}
-                    bg = {'var(--color-accent)'}
-                    color = {'#fff'}
-                    hColor = {'var(--color-blue)'}
-                    onClick={handleLogin}
-                />
-                {/* <a href="frontend\src\components\Login\Login.js" id="link">LOGIN</a> */}
-
+                <div className="submit-btn">
+                    <Button 
+                        name = {'Login'}
+                        bPad = {'.8rem 1.6rem'}
+                        bRad = {'30px'}
+                        bg = {'var(--color-accent)'}
+                        color = {'#fff'}
+                        hColor = {'var(--color-blue)'}
+                        onClick={handleLogin}
+                    />
+                </div>
             </div>
-            </InnerLayout>
+        </InnerLayout>
     </SignUpStyled>
   )
 }
 
 const SignUpStyled = styled.div`
-h1{
-    display: center;
-    overflow: auto;
-}
-input{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+
+  
+  h1 {
+    text-align: center;
+  }
+  
+  input{
+    position: relative;
+    display: block;
+    left: 40%;
     font-family: inherit;
     font-size: inherit;
     outline: none;
@@ -96,37 +115,40 @@ input{
     &::placeholder{
         color: rgba(34, 34, 96, 0.4);
     }
-}
-.input-control{
-    input{
-        width: 100%;
-    }
-}
-.submit-btn{
-button{
-    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-    &:hover{
-        background: var(--color-green) !important;
-        }
-    }
-}
-a:link, a:visited {
+  }
+  .input-control input {
+    width: 100%;
+  }
+  
+  .submit-btn button{
+    margin-top: 1rem;
+    position: relative;
+    top: 50%;
+    left: 45%;
+  }
+  
+  a:link,
+  a:visited {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #f44336;
     color: white;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-}
-a:hover{
-    color: dark green;
+  }
+  
+  a:hover {
+    color: darkgreen;
     text-decoration: underline;
     background-color: lightgreen;
-}
-p{
-    display: center;
-    font-size: large;
-}
+  }
+  
+  p {
+    text-align: center;
+  }
+  
 `;
 
 export default SignUp

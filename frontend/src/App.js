@@ -11,28 +11,11 @@ import { GlobalProvider, useGlobalContext } from "./context/globalContext";
 import Login from "./components/Login/Login";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignUp from "./components/SignUp/SignUp";
+import SignOut from "./components/SignOut/SignOut";
 
 
 function App() {
-  const [active, setActive] = useState(1)
-
-  // const global = useGlobalContext()
-  // console.log(global);
-
-  // const displayData = () => {
-  //   switch(active){
-  //     case 1:
-  //       return <Login />
-  //     case 2:
-  //       return <Dashboard />
-  //     case 3:
-  //       return <Incomes />
-  //     case 4: 
-  //       return <Expenses />
-  //     default: 
-  //       return <Dashboard />
-  //   }
-  // }
+  const [active, setActive] = useState(1);
 
   const orbMemo = useMemo(() => {
     return <Orb />
@@ -52,8 +35,8 @@ function App() {
             <Route path = "/Incomes" element={<Incomes />} />
             <Route path = "/Expenses" element={<Expenses />} />
             <Route path = "/SignUp" element={<SignUp />} />
+            <Route path = "/SignOut" element={<SignOut />} />
           </Routes>
-          {/* {displayData()} */}
         </main>
       </MainLayout>
     </AppStyled>

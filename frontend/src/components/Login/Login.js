@@ -60,7 +60,7 @@ function Login() {
                 <form action="POST" method="post">
                     <input id="input-control" type="email" onChange={(e) =>{setEmail(e.target.value)}} placeholder="Email" name="" />
                     <input type="password" onChange={(e) => {setPassword(e.target.value)}} placeholder='Password' name="" id="input-control" />
-                    <br />
+
                     <div className="submit-btn">
                         
                         <Button 
@@ -75,81 +75,87 @@ function Login() {
 
                     </div>
                 </form>
-                
-                <br />
                 <p>OR</p>
-                <br />
-                <Button 
-                    name = {'SignUp'}
-                    bPad = {'.8rem 1.6rem'}
-                    bRad = {'30px'}
-                    bg = {'var(--color-accent)'}
-                    color = {'#fff'}
-                    hColor = {'var(--color-blue)'}
-                    onClick={handleSignup}
-                />
-                
-                 {/* <a href={SignUp} id="link">SignUp</a>  */}
-
+                <div className="submit-btn">
+                    <Button 
+                        name = {'SignUp'}
+                        bPad = {'.8rem 1.6rem'}
+                        bRad = {'30px'}
+                        bg = {'var(--color-accent)'}
+                        color = {'#fff'}
+                        hColor = {'var(--color-blue)'}
+                        onClick={handleSignup}
+                    />
+                </div>
             </div>
-            
         </InnerLayout>
     </LoginStyled>
   )
 }
 
 const LoginStyled = styled.div`
-    h1{
-        display: center;
-        overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+
+
+    h1 {
+    text-align: center;
     }
+
     input{
-        font-family: inherit;
-        font-size: inherit;
-        outline: none;
-        border: none;
-        padding: .5rem 1rem;
-        border-radius: 5px;
-        border: 2px solid #fff;
-        background: transparent;
-        resize: none;
-        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-        color: rgba(34, 34, 96, 0.9);
-        &::placeholder{
-            color: rgba(34, 34, 96, 0.4);
-        }
+    position: relative;
+    display: block;
+    left: 40%;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    background: transparent;
+    resize: none;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+    color: rgba(34, 34, 96, 0.9);
+    &::placeholder{
+        color: rgba(34, 34, 96, 0.4);
     }
-    .input-control{
-        input{
-            width: 100%;
-        }
     }
-    .submit-btn{
-    button{
-        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-        &:hover{
-            background: var(--color-green) !important;
-            }
-        }
+    .input-control input {
+    width: 100%;
     }
-    a:link, a:visited {
-        background-color: #f44336;
-        color: white;
-        padding: 14px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
+
+    .submit-btn button{
+    margin-top: 1rem;
+    position: relative;
+    top: 50%;
+    left: 45%;
     }
-    a:hover{
-        color: dark green;
-        text-decoration: underline;
-        background-color: lightgreen;
+
+    a:link,
+    a:visited {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
     }
-    p{
-        display: center;
-        font-size: large;
+
+    a:hover {
+    color: darkgreen;
+    text-decoration: underline;
+    background-color: lightgreen;
     }
-    
+
+    p {
+    text-align: center;
+    }
 `;
 
 export default Login

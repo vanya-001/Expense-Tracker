@@ -4,6 +4,8 @@ import avatar from '../../images/Avatar.png'
 import { menuItems } from '../../utils/menuItems'
 import {signout} from '../../utils/icons'
 import { Link } from 'react-router-dom'
+import SignUp from '../SignUp/SignUp'
+import SignOut from '../SignOut/SignOut'
 
 function Navigation({active, setActive}) {
   return (
@@ -17,7 +19,7 @@ function Navigation({active, setActive}) {
         </div>
         <ul className='menu-items'>
             {menuItems.map((item) => {
-                return <Link to={item.link}>
+                return <Link to={item.link} className='link' id='link'>
                 <li 
                     key = {item.id}
                     onClick={() => setActive(item.id)}
@@ -30,9 +32,11 @@ function Navigation({active, setActive}) {
             })}
         </ul>
         <div className="bottom-nav">
+            <Link to="/SignOut" className='link' id='link'>
             <li>
                 {signout} Sign Out
             </li>
+            </Link>
         </div>
     </NavStyled>
   )
@@ -76,6 +80,9 @@ const NavStyled = styled.nav`
         flex: 1;
         display: flex;
         flex-direction: column;
+        .link{
+            text-decoration : none;
+        }
         li{
             display: grid;
             grid-template-columns: 40px auto;
@@ -94,6 +101,19 @@ const NavStyled = styled.nav`
             }
         }
     }
+    .menu-items li.active {
+        background-color: rgba(34,34,96,0.2);
+        border-radius: 20px;
+      }
+      
+      .menu-items li:hover {
+        background-color: rgba(34,34,96,0.2);
+        border-radius: 20px;
+      }
+      
+      .menu-items li span {
+        margin-left: 10px;
+      }
 
     .active{
         color: rgba(34,34,96,1) !important;
@@ -110,6 +130,9 @@ const NavStyled = styled.nav`
             background: #222260;
             border-radius: 0 10px 10px 0;
         }
+    }
+    .link{
+        text-decoration : none;
     }
 `;
 
