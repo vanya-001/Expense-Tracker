@@ -4,8 +4,6 @@ import avatar from '../../images/Avatar.png'
 import { menuItems } from '../../utils/menuItems'
 import {signout} from '../../utils/icons'
 import { Link } from 'react-router-dom'
-import SignUp from '../SignUp/SignUp'
-import SignOut from '../SignOut/SignOut'
 
 function Navigation({active, setActive}) {
   return (
