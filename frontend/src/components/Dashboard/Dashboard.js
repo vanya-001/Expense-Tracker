@@ -5,11 +5,10 @@ import Chart from '../Chart/Chart'
 import { dollar } from '../../utils/icons';
 import { useGlobalContext } from '../../context/globalContext';
 import History from '../../History/History';
-// import { useHistory } from 'react-router-dom';
+
 
 function Dashboard() {
   const {incomes, expenses, totalExpense, totalIncome, totalBalance, getIncome, getExpense} = useGlobalContext()
-  // const history = useHistory();
 
   useEffect(() =>{
     getIncome()
@@ -18,7 +17,7 @@ function Dashboard() {
   return (
     <DashboardStyled>
         <InnerLayout>
-            <h1>All Transcations</h1>
+            <h1>All Transactions</h1>
             <div className="stats-con">
               <div className="chart-con">
                 <Chart />
