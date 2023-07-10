@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import Button from '../Button/Button';
 import { InnerLayout } from '../../styles/Layouts'; 
-import SignUp from '../SignUp/SignUp';
+// import SignUp from '../SignUp/SignUp';
 // import Dashboard from "../Dashboard/Dashboard";
 // import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
